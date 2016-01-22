@@ -32,9 +32,6 @@ func init() {
 // ExecuteTemplate executes the template name by passing it the given data and
 // writes the response to w.
 func ExecuteTemplate(w io.Writer, name string, data interface{}) error {
-	if len(templates) == 0 {
-		return fmt.Errorf("no templates have been loaded, try tmpl.LoadFiles?")
-	}
 	t, ok := templates[name]
 	if !ok {
 		return fmt.Errorf("template '%s' not found", name)
