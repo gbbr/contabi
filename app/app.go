@@ -24,9 +24,13 @@ func handleWithError(fn func(http.ResponseWriter, *http.Request) error) http.Han
 	}
 }
 
+// Serve starts the HTTP server and listens for incoming page requests.
 func Serve() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", handleWithError(homePage))
+
+	mux.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("./assets/js"))))
+	mux.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("./assets/img"))))
 
 	if err := http.ListenAndServe(":8080", mux); err != nil {
 		log.Fatal(err)
