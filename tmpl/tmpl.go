@@ -11,6 +11,7 @@ import (
 // each group is the name of the resulting template for that group.
 var templateFiles = [][]string{
 	{"tmpl/files/home.html"},
+	{"tmpl/files/login.html"},
 }
 
 var templates map[string]*template.Template
