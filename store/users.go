@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/user"
 	"path/filepath"
+	"sync"
 	"time"
 )
 
@@ -37,15 +38,20 @@ type User struct {
 	SessionKeyTime time.Time
 }
 
-type userStore struct{ location string }
-
 func DefaultUserStore() UserStore {
 	// TODO(gbbr): Handle error
 	usr, _ := user.Current()
-	return &userStore{filepath.Join(usr.HomeDir, ".contabi/users")}
+	return &userStore{
+		location: filepath.Join(usr.HomeDir, ".contabi/users"),
+	}
 }
 
 var ErrorUserNotFound = errors.New("user not found")
+
+type userStore struct {
+	location string
+	mu       sync.RWMutex
+}
 
 func (u userStore) Get(id string) (*User, error) {
 	b, err := ioutil.ReadFile(filepath.Join(u.location, id))
@@ -60,6 +66,6 @@ func (u userStore) Get(id string) (*User, error) {
 	return &usr, err
 }
 
-func (u userStore) Update(*User) (*User, error) {
+func (u userStore) Update(up *User) (*User, error) {
 	return nil, nil
 }
