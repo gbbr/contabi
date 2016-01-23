@@ -15,7 +15,11 @@ const sessionExpires = 3 * time.Hour
 
 // UserStore allows managing user storage and authentication.
 type UserStore interface {
+	// Get returns the user based on his ID (email).
 	Get(id string) (*User, error)
+
+	// Update updates a given user with new data. The user to be updated is
+	// set by setting the appropriate Email field.
 	Update(*User) (*User, error)
 }
 
@@ -23,6 +27,9 @@ type UserStore interface {
 type User struct {
 	// Email holds the email of the user.
 	Email string
+
+	// Password holds the password for this user.
+	Password string
 
 	// FirstName holds the first name of this user.
 	FirstName string
@@ -46,18 +53,26 @@ func DefaultUserStore() UserStore {
 	}
 }
 
-var ErrorUserNotFound = errors.New("user not found")
+var ErrUserNotFound = errors.New("user not found")
 
 type userStore struct {
 	location string
 	mu       sync.RWMutex
 }
 
+var _ UserStore = (*userStore)(nil)
+
 func (u userStore) Get(id string) (*User, error) {
+	u.mu.RLock()
+	defer u.mu.RUnlock()
+	return u.get(id)
+}
+
+func (u userStore) get(id string) (*User, error) {
 	b, err := ioutil.ReadFile(filepath.Join(u.location, id))
 	if err != nil {
 		if os.IsNotExist(err) {
-			return nil, ErrorUserNotFound
+			return nil, ErrUserNotFound
 		}
 		return nil, err
 	}
@@ -67,5 +82,34 @@ func (u userStore) Get(id string) (*User, error) {
 }
 
 func (u userStore) Update(up *User) (*User, error) {
-	return nil, nil
+	u.mu.Lock()
+	defer u.mu.Unlock()
+	usr, err := u.get(up.Email)
+	if err != nil {
+		return nil, err
+	}
+	if up.Password != "" {
+		usr.Password = up.Password
+	}
+	if up.FirstName != "" {
+		usr.FirstName = up.FirstName
+	}
+	if up.LastName != "" {
+		usr.LastName = up.LastName
+	}
+	if up.SessionKey != "" {
+		usr.SessionKey = up.SessionKey
+	}
+	if !up.SessionKeyTime.IsZero() {
+		usr.SessionKeyTime = up.SessionKeyTime
+	}
+	b, err := json.Marshal(usr)
+	if err != nil {
+		return nil, err
+	}
+	err = ioutil.WriteFile(filepath.Join(u.location, up.Email), b, 0666)
+	if err != nil {
+		return nil, err
+	}
+	return usr, nil
 }
