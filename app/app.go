@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/gbbr/contabi/svc"
 )
 
 // handlerWithError is an http.Handler that manages potentially returned errors.
@@ -17,9 +19,20 @@ type handlerWithError struct {
 	noAuth bool
 }
 
-func (h handlerWithError) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	err := h.fn(w, r)
+func authed(r *http.Request) bool {
+	ok, err := svc.Users.IsValidRequest(r)
 	if err != nil {
+		return false
+	}
+	return ok
+}
+
+func (h handlerWithError) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	if !h.noAuth && !authed(r) {
+		http.Redirect(w, r, "/login", http.StatusFound)
+		return
+	}
+	if err := h.fn(w, r); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "error: %v", err)
 		return

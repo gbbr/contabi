@@ -11,8 +11,6 @@ import (
 	"time"
 )
 
-const sessionExpires = 3 * time.Hour
-
 // UserStore allows managing user storage and authentication.
 type UserStore interface {
 	// Get returns the user based on his ID (email).
@@ -99,6 +97,7 @@ func (u userStore) Update(up *User) (*User, error) {
 	}
 	if up.SessionKey != "" {
 		usr.SessionKey = up.SessionKey
+		usr.SessionKeyTime = time.Now()
 	}
 	if !up.SessionKeyTime.IsZero() {
 		usr.SessionKeyTime = up.SessionKeyTime
