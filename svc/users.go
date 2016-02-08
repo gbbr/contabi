@@ -19,6 +19,8 @@ var _ UserService = (*userService)(nil)
 
 const sessionExpires = 3 * time.Hour
 
+// IsValidRequest returns true if the request contains valid authentication
+// information.
 func (_ userService) IsValidRequest(r *http.Request) (bool, error) {
 	id := r.Header.Get("X-Auth-User")
 	t := r.Header.Get("X-Auth-Token")

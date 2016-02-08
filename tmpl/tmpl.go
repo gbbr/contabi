@@ -2,9 +2,9 @@ package tmpl
 
 import (
 	"fmt"
+	"html/template"
 	"io"
 	"log"
-	"text/template"
 )
 
 // templateFiles holds a list of file groups to be parsed. The first file in
