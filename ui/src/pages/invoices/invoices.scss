@@ -1,0 +1,11 @@
+@import "~@blueprintjs/core/dist/variables.scss";
+
+.page-invoices {
+  .btn-add-invoice {
+    margin-bottom: 15px;
+  }
+
+  .invoice-list {
+    border: 1px solid $light-gray2;
+  }
+}
