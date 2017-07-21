@@ -14,6 +14,7 @@ module.exports = {
 
   module: {
     rules: [
+      /*
       {
         test: /\.js$/,
         enforce: 'pre',
@@ -28,6 +29,7 @@ module.exports = {
           }
         ]
       },
+      */
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
