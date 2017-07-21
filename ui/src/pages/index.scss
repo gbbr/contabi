@@ -1,4 +1,5 @@
 @import "~@blueprintjs/core/dist/blueprint.css";
+@import "~@blueprintjs/core/dist/variables.scss";
 
 body {
   margin: 0;
@@ -11,4 +12,9 @@ body {
 
 .subnav .pt-tab-list {
   padding: 5px 0 0 15px;
+  background: $light-gray3;
+}
+
+.color-warning {
+  color: $pt-intent-warning;
 }
