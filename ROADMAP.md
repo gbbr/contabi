@@ -6,3 +6,4 @@
 
 - Find a way to build BE & FE together w/ live-reload (go-bindatassetfs, etc)
 - Set up Go dummy backend with dummy data
+- Set up auth
