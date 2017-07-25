@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	assetfs "github.com/elazarl/go-bindata-assetfs"
 	"github.com/gbbr/contabi/svc"
 )
 
@@ -44,12 +45,15 @@ func Serve() {
 	mux := http.NewServeMux()
 
 	// routes
-	mux.Handle("/", handlerWithError{fn: homePage})
 	mux.Handle("/login", handlerWithError{fn: loginPage, noAuth: true})
 
 	// static resources
-	mux.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("./assets/js"))))
-	mux.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("./assets/img"))))
+	mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(&assetfs.AssetFS{
+		Asset:     Asset,
+		AssetDir:  AssetDir,
+		AssetInfo: AssetInfo,
+		Prefix:    "",
+	})))
 
 	if err := http.ListenAndServe(":8080", mux); err != nil {
 		log.Fatal(err)

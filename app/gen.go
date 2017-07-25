@@ -1,3 +1,3 @@
 package app
 
-//go:generate go-bindata $CONTABI_BINDATA -o ui.bindata.go -pkg app ui/dist/
+//go:generate go-bindata -debug -o ui.bindata.go -prefix=ui/dist/ -pkg app ui/dist/

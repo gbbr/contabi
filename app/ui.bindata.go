@@ -34,10 +34,10 @@ type asset struct {
 	info  os.FileInfo
 }
 
-// uiDist311f9ffb736bec3f5d942707f570ed68Eot reads file data from disk. It returns an error on failure.
-func uiDist311f9ffb736bec3f5d942707f570ed68Eot() (*asset, error) {
-	path := filepath.Join(rootDir, "ui/dist/311f9ffb736bec3f5d942707f570ed68.eot")
-	name := "ui/dist/311f9ffb736bec3f5d942707f570ed68.eot"
+// _311f9ffb736bec3f5d942707f570ed68Eot reads file data from disk. It returns an error on failure.
+func _311f9ffb736bec3f5d942707f570ed68Eot() (*asset, error) {
+	path := "/Users/Gabriel/go/src/github.com/gbbr/contabi/app/ui/dist/311f9ffb736bec3f5d942707f570ed68.eot"
+	name := "311f9ffb736bec3f5d942707f570ed68.eot"
 	bytes, err := bindataRead(path, name)
 	if err != nil {
 		return nil, err
@@ -52,10 +52,10 @@ func uiDist311f9ffb736bec3f5d942707f570ed68Eot() (*asset, error) {
 	return a, err
 }
 
-// uiDist485d934dff5213b0dafdc757c1a4127cEot reads file data from disk. It returns an error on failure.
-func uiDist485d934dff5213b0dafdc757c1a4127cEot() (*asset, error) {
-	path := filepath.Join(rootDir, "ui/dist/485d934dff5213b0dafdc757c1a4127c.eot")
-	name := "ui/dist/485d934dff5213b0dafdc757c1a4127c.eot"
+// _485d934dff5213b0dafdc757c1a4127cEot reads file data from disk. It returns an error on failure.
+func _485d934dff5213b0dafdc757c1a4127cEot() (*asset, error) {
+	path := "/Users/Gabriel/go/src/github.com/gbbr/contabi/app/ui/dist/485d934dff5213b0dafdc757c1a4127c.eot"
+	name := "485d934dff5213b0dafdc757c1a4127c.eot"
 	bytes, err := bindataRead(path, name)
 	if err != nil {
 		return nil, err
@@ -70,10 +70,10 @@ func uiDist485d934dff5213b0dafdc757c1a4127cEot() (*asset, error) {
 	return a, err
 }
 
-// uiDist4f5c35f76f22fbdeb718c79aeec7f274Woff reads file data from disk. It returns an error on failure.
-func uiDist4f5c35f76f22fbdeb718c79aeec7f274Woff() (*asset, error) {
-	path := filepath.Join(rootDir, "ui/dist/4f5c35f76f22fbdeb718c79aeec7f274.woff")
-	name := "ui/dist/4f5c35f76f22fbdeb718c79aeec7f274.woff"
+// _4f5c35f76f22fbdeb718c79aeec7f274Woff reads file data from disk. It returns an error on failure.
+func _4f5c35f76f22fbdeb718c79aeec7f274Woff() (*asset, error) {
+	path := "/Users/Gabriel/go/src/github.com/gbbr/contabi/app/ui/dist/4f5c35f76f22fbdeb718c79aeec7f274.woff"
+	name := "4f5c35f76f22fbdeb718c79aeec7f274.woff"
 	bytes, err := bindataRead(path, name)
 	if err != nil {
 		return nil, err
@@ -88,10 +88,10 @@ func uiDist4f5c35f76f22fbdeb718c79aeec7f274Woff() (*asset, error) {
 	return a, err
 }
 
-// uiDistBundleJs reads file data from disk. It returns an error on failure.
-func uiDistBundleJs() (*asset, error) {
-	path := filepath.Join(rootDir, "ui/dist/bundle.js")
-	name := "ui/dist/bundle.js"
+// bundleJs reads file data from disk. It returns an error on failure.
+func bundleJs() (*asset, error) {
+	path := "/Users/Gabriel/go/src/github.com/gbbr/contabi/app/ui/dist/bundle.js"
+	name := "bundle.js"
 	bytes, err := bindataRead(path, name)
 	if err != nil {
 		return nil, err
@@ -106,10 +106,10 @@ func uiDistBundleJs() (*asset, error) {
 	return a, err
 }
 
-// uiDistC277c90fab96566a2f3aca9b9a0316d8Woff reads file data from disk. It returns an error on failure.
-func uiDistC277c90fab96566a2f3aca9b9a0316d8Woff() (*asset, error) {
-	path := filepath.Join(rootDir, "ui/dist/c277c90fab96566a2f3aca9b9a0316d8.woff")
-	name := "ui/dist/c277c90fab96566a2f3aca9b9a0316d8.woff"
+// c277c90fab96566a2f3aca9b9a0316d8Woff reads file data from disk. It returns an error on failure.
+func c277c90fab96566a2f3aca9b9a0316d8Woff() (*asset, error) {
+	path := "/Users/Gabriel/go/src/github.com/gbbr/contabi/app/ui/dist/c277c90fab96566a2f3aca9b9a0316d8.woff"
+	name := "c277c90fab96566a2f3aca9b9a0316d8.woff"
 	bytes, err := bindataRead(path, name)
 	if err != nil {
 		return nil, err
@@ -124,10 +124,10 @@ func uiDistC277c90fab96566a2f3aca9b9a0316d8Woff() (*asset, error) {
 	return a, err
 }
 
-// uiDistCc21326e8e182de2ae065bd3057c20e5Ttf reads file data from disk. It returns an error on failure.
-func uiDistCc21326e8e182de2ae065bd3057c20e5Ttf() (*asset, error) {
-	path := filepath.Join(rootDir, "ui/dist/cc21326e8e182de2ae065bd3057c20e5.ttf")
-	name := "ui/dist/cc21326e8e182de2ae065bd3057c20e5.ttf"
+// cc21326e8e182de2ae065bd3057c20e5Ttf reads file data from disk. It returns an error on failure.
+func cc21326e8e182de2ae065bd3057c20e5Ttf() (*asset, error) {
+	path := "/Users/Gabriel/go/src/github.com/gbbr/contabi/app/ui/dist/cc21326e8e182de2ae065bd3057c20e5.ttf"
+	name := "cc21326e8e182de2ae065bd3057c20e5.ttf"
 	bytes, err := bindataRead(path, name)
 	if err != nil {
 		return nil, err
@@ -142,10 +142,10 @@ func uiDistCc21326e8e182de2ae065bd3057c20e5Ttf() (*asset, error) {
 	return a, err
 }
 
-// uiDistEeeeeaf16a26c17e07497e90778d3312Ttf reads file data from disk. It returns an error on failure.
-func uiDistEeeeeaf16a26c17e07497e90778d3312Ttf() (*asset, error) {
-	path := filepath.Join(rootDir, "ui/dist/eeeeeaf16a26c17e07497e90778d3312.ttf")
-	name := "ui/dist/eeeeeaf16a26c17e07497e90778d3312.ttf"
+// eeeeeaf16a26c17e07497e90778d3312Ttf reads file data from disk. It returns an error on failure.
+func eeeeeaf16a26c17e07497e90778d3312Ttf() (*asset, error) {
+	path := "/Users/Gabriel/go/src/github.com/gbbr/contabi/app/ui/dist/eeeeeaf16a26c17e07497e90778d3312.ttf"
+	name := "eeeeeaf16a26c17e07497e90778d3312.ttf"
 	bytes, err := bindataRead(path, name)
 	if err != nil {
 		return nil, err
@@ -160,10 +160,10 @@ func uiDistEeeeeaf16a26c17e07497e90778d3312Ttf() (*asset, error) {
 	return a, err
 }
 
-// uiDistIndexHtml reads file data from disk. It returns an error on failure.
-func uiDistIndexHtml() (*asset, error) {
-	path := filepath.Join(rootDir, "ui/dist/index.html")
-	name := "ui/dist/index.html"
+// indexHtml reads file data from disk. It returns an error on failure.
+func indexHtml() (*asset, error) {
+	path := "/Users/Gabriel/go/src/github.com/gbbr/contabi/app/ui/dist/index.html"
+	name := "index.html"
 	bytes, err := bindataRead(path, name)
 	if err != nil {
 		return nil, err
@@ -230,14 +230,14 @@ func AssetNames() []string {
 
 // _bindata is a table, holding each asset generator, mapped to its name.
 var _bindata = map[string]func() (*asset, error){
-	"ui/dist/311f9ffb736bec3f5d942707f570ed68.eot": uiDist311f9ffb736bec3f5d942707f570ed68Eot,
-	"ui/dist/485d934dff5213b0dafdc757c1a4127c.eot": uiDist485d934dff5213b0dafdc757c1a4127cEot,
-	"ui/dist/4f5c35f76f22fbdeb718c79aeec7f274.woff": uiDist4f5c35f76f22fbdeb718c79aeec7f274Woff,
-	"ui/dist/bundle.js": uiDistBundleJs,
-	"ui/dist/c277c90fab96566a2f3aca9b9a0316d8.woff": uiDistC277c90fab96566a2f3aca9b9a0316d8Woff,
-	"ui/dist/cc21326e8e182de2ae065bd3057c20e5.ttf": uiDistCc21326e8e182de2ae065bd3057c20e5Ttf,
-	"ui/dist/eeeeeaf16a26c17e07497e90778d3312.ttf": uiDistEeeeeaf16a26c17e07497e90778d3312Ttf,
-	"ui/dist/index.html": uiDistIndexHtml,
+	"311f9ffb736bec3f5d942707f570ed68.eot": _311f9ffb736bec3f5d942707f570ed68Eot,
+	"485d934dff5213b0dafdc757c1a4127c.eot": _485d934dff5213b0dafdc757c1a4127cEot,
+	"4f5c35f76f22fbdeb718c79aeec7f274.woff": _4f5c35f76f22fbdeb718c79aeec7f274Woff,
+	"bundle.js": bundleJs,
+	"c277c90fab96566a2f3aca9b9a0316d8.woff": c277c90fab96566a2f3aca9b9a0316d8Woff,
+	"cc21326e8e182de2ae065bd3057c20e5.ttf": cc21326e8e182de2ae065bd3057c20e5Ttf,
+	"eeeeeaf16a26c17e07497e90778d3312.ttf": eeeeeaf16a26c17e07497e90778d3312Ttf,
+	"index.html": indexHtml,
 }
 
 // AssetDir returns the file names below a certain
@@ -280,18 +280,14 @@ type bintree struct {
 	Children map[string]*bintree
 }
 var _bintree = &bintree{nil, map[string]*bintree{
-	"ui": &bintree{nil, map[string]*bintree{
-		"dist": &bintree{nil, map[string]*bintree{
-			"311f9ffb736bec3f5d942707f570ed68.eot": &bintree{uiDist311f9ffb736bec3f5d942707f570ed68Eot, map[string]*bintree{}},
-			"485d934dff5213b0dafdc757c1a4127c.eot": &bintree{uiDist485d934dff5213b0dafdc757c1a4127cEot, map[string]*bintree{}},
-			"4f5c35f76f22fbdeb718c79aeec7f274.woff": &bintree{uiDist4f5c35f76f22fbdeb718c79aeec7f274Woff, map[string]*bintree{}},
-			"bundle.js": &bintree{uiDistBundleJs, map[string]*bintree{}},
-			"c277c90fab96566a2f3aca9b9a0316d8.woff": &bintree{uiDistC277c90fab96566a2f3aca9b9a0316d8Woff, map[string]*bintree{}},
-			"cc21326e8e182de2ae065bd3057c20e5.ttf": &bintree{uiDistCc21326e8e182de2ae065bd3057c20e5Ttf, map[string]*bintree{}},
-			"eeeeeaf16a26c17e07497e90778d3312.ttf": &bintree{uiDistEeeeeaf16a26c17e07497e90778d3312Ttf, map[string]*bintree{}},
-			"index.html": &bintree{uiDistIndexHtml, map[string]*bintree{}},
-		}},
-	}},
+	"311f9ffb736bec3f5d942707f570ed68.eot": &bintree{_311f9ffb736bec3f5d942707f570ed68Eot, map[string]*bintree{}},
+	"485d934dff5213b0dafdc757c1a4127c.eot": &bintree{_485d934dff5213b0dafdc757c1a4127cEot, map[string]*bintree{}},
+	"4f5c35f76f22fbdeb718c79aeec7f274.woff": &bintree{_4f5c35f76f22fbdeb718c79aeec7f274Woff, map[string]*bintree{}},
+	"bundle.js": &bintree{bundleJs, map[string]*bintree{}},
+	"c277c90fab96566a2f3aca9b9a0316d8.woff": &bintree{c277c90fab96566a2f3aca9b9a0316d8Woff, map[string]*bintree{}},
+	"cc21326e8e182de2ae065bd3057c20e5.ttf": &bintree{cc21326e8e182de2ae065bd3057c20e5Ttf, map[string]*bintree{}},
+	"eeeeeaf16a26c17e07497e90778d3312.ttf": &bintree{eeeeeaf16a26c17e07497e90778d3312Ttf, map[string]*bintree{}},
+	"index.html": &bintree{indexHtml, map[string]*bintree{}},
 }}
 
 // RestoreAsset restores an asset under the given directory
