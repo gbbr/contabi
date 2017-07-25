@@ -1,0 +1,4 @@
+bindata.go
+app/ui/dist
+!app/ui/dist/index.html
+node_modules
