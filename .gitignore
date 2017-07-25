@@ -1,4 +1,4 @@
 bindata.go
 app/ui/dist
-!app/ui/dist/index.html
+!app/ui/dist/index.tmpl
 node_modules
