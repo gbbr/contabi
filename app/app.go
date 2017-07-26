@@ -4,32 +4,17 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
-	"path/filepath"
 
 	assetfs "github.com/elazarl/go-bindata-assetfs"
 	"github.com/gbbr/contabi/app/tmpl"
+	"github.com/gbbr/contabi/app/ui"
 	"github.com/gorilla/mux"
 )
 
-// rootDir holds the full path of the dist/ file server. It is used by
-// go-bindata in development mode.
-var rootDir string
-
-func init() {
-	wd, err := os.Getwd()
-	if err != nil {
-		log.Fatalf("getwd: %v", err)
-	}
-	rootDir = filepath.Join(wd, "app", "ui", "dist")
-}
-
-type withError struct {
-	handler func(w http.ResponseWriter, r *http.Request) error
-}
+type withError func(w http.ResponseWriter, r *http.Request) error
 
 func (we withError) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if err := we.handler(w, r); err != nil {
+	if err := we(w, r); err != nil {
 		fmt.Fprintf(w, "ERROR: %+v", err)
 	}
 }
@@ -46,13 +31,13 @@ func Serve() {
 	r := mux.NewRouter()
 
 	// routes
-	r.Handle("/", withError{home})
+	r.Handle("/", withError(home))
 
 	// resources
 	r.PathPrefix("/dist/").Handler(http.StripPrefix("/dist/", http.FileServer(&assetfs.AssetFS{
-		Asset:     Asset,
-		AssetDir:  AssetDir,
-		AssetInfo: AssetInfo,
+		Asset:     ui.Asset,
+		AssetDir:  ui.AssetDir,
+		AssetInfo: ui.AssetInfo,
 		Prefix:    "",
 	})))
 
