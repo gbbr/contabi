@@ -1,9 +1,7 @@
 package app
 
 import (
-	"encoding/json"
 	"fmt"
-	"html/template"
 	"log"
 	"net/http"
 	"os"
@@ -26,27 +24,6 @@ func init() {
 	rootDir = filepath.Join(wd, "app", "ui", "dist")
 }
 
-// t holds the index HTML template.
-var t *template.Template
-
-func init() {
-	b, err := tmpl.Asset("index.tmpl")
-	if err != nil {
-		log.Fatalf("asset: %v", err)
-	}
-
-	t = template.Must(
-		template.New("index").
-			Funcs(template.FuncMap{
-				"json": func(v interface{}) template.JS {
-					a, _ := json.Marshal(v)
-					return template.JS(a)
-				},
-			}).
-			Parse(string(b)),
-	)
-}
-
 type withError struct {
 	handler func(w http.ResponseWriter, r *http.Request) error
 }
@@ -58,7 +35,7 @@ func (we withError) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func home(w http.ResponseWriter, r *http.Request) error {
-	return t.Execute(w, struct {
+	return tmpl.Execute(w, struct {
 		A int
 		B string
 	}{1, "QWE"})
