@@ -2,7 +2,7 @@
 // to be included into the final binary, or to be served during development.
 package ui
 
-//go:generate webpack
+//go:generate webpack --display=errors-only
 //go:generate go-bindata -dev -o bindata.go -prefix=dist/ -pkg ui dist/
 
 import (
